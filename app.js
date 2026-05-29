@@ -72,6 +72,26 @@ app.get('/editworkout/:id', (req, res) => {
 
 });
 
+app.post('/updateWorkout/:id', (req, res) => {
+
+    const id = req.params.id;
+
+    workouts[id] = {
+
+        Day: req.body.Day,
+        Timing: req.body.Timing,
+        MuscleGroups: req.body.MuscleGroups,
+        Notes: req.body.Notes
+
+    };
+
+    res.render('confirmedWorkout', {
+        message: "Workout updated!",
+        workout: workouts[id]
+    });
+
+});
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
