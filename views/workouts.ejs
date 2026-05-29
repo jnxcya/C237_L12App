@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Workout List</title>
+</head>
+
+<body>
+
+<div class="container mt-4">
+
+    <h1 class="text-center">All Workouts</h1>
+
+    <% if(workouts.length === 0) { %>
+
+        <p>No workouts added yet.</p>
+
+    <% } else { %>
+
+        <% workouts.forEach((workout, index) => { %>
+
+            <div class="card mb-3">
+
+                <div class="card-body">
+
+                    <h4>
+                        Workout <%= index + 1 %>
+                    </h4>
+
+                    <p>
+                        <strong>Day:</strong>
+                        <%= workout.Day %>
+                    </p>
+
+                    <p>
+                        <strong>Timing:</strong>
+                        <%= workout.Timing %>
+                    </p>
+
+                    <p>
+                        <strong>Muscle Groups:</strong>
+                        <%= workout.MuscleGroups %>
+                    </p>
+
+                    <p>
+                        <strong>Notes:</strong>
+                        <%= workout.Notes %>
+                    </p>
+
+                </div>
+
+            </div>
+
+        <% }) %>
+
+    <% } %>
+
+</div>
+
+</body>
+</html>
