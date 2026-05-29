@@ -23,6 +23,36 @@ app.get('/', (req, res) => {
 
 // ---------------------------------------------------
 
+let workouts = []; // In-memory array to store workouts
+
+app.get('/addworkout', (req, res) => {
+    // Render the add workout page (you need to create this view)
+    res.render('addworkout');
+});
+
+app.post('/confirmworkout', (req, res) => {
+
+    const {
+        Day,
+        Timing,
+        MuscleGroups,
+        Notes
+    } = req.body;
+
+    const newWorkout = {
+        Day,
+        Timing,
+        MuscleGroups,
+        Notes
+    };
+
+    workouts.push(newWorkout);
+
+    res.render('confirmworkout', {
+        workout: newWorkout
+    });
+});
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
