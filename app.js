@@ -53,6 +53,25 @@ app.post('/confirmworkout', (req, res) => {
     });
 });
 
+app.get('/workout', (req, res) => {
+
+    res.render('workout', {
+        workouts
+    });
+
+});
+
+app.get('/editworkout/:id', (req, res) => {
+
+    const id = req.params.id;
+
+    res.render('editworkout', {
+        workout: workouts[id],
+        id
+    });
+
+});
+
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
