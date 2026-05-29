@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,206 +8,159 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Edit Workout</title>
 
-    
+
 </head>
 
 <body>
 
-<div class="container mt-4">
+    <div class="container mt-4">
 
-    <h1 class="text-center">
-        Edit Workout
-    </h1>
+        <h1 class="text-center">
+            Edit Workout
+        </h1>
 
-    <form action="/updateworkout" method="POST">
+        <form action="/updateworkout" method="POST">
 
-        <!-- DAY -->
-        <div class="mb-3">
+            <!-- DAY -->
+            <div class="mb-3">
 
-    <label class="form-label">
-        Workout Day
-    </label>
-
-    <input
-        type="number"
-        name="Day"
-        class="form-control"
-        value="<%= workout.Day %>"
-        min="1"
-        required
-    >
-
-</div>
-
-        <!-- TIMING -->
-        <div class="mb-3">
-
-            <label class="form-label">
-                Workout Timing
-            </label>
-
-            <select name="Timing" class="form-control">
-
-                <option value="Morning"
-                    <%= workout.Timing === 'Morning' ? 'selected' : '' %>>
-                    Morning
-                </option>
-
-                <option value="Afternoon"
-                    <%= workout.Timing === 'Afternoon' ? 'selected' : '' %>>
-                    Afternoon
-                </option>
-
-                <option value="Evening"
-                    <%= workout.Timing === 'Evening' ? 'selected' : '' %>>
-                    Evening
-                </option>
-
-            </select>
-
-        </div>
-
-        <!-- MUSCLE GROUPS -->
-        <div class="mb-3">
-
-            <label class="form-label">
-                Muscle Groups
-            </label>
-
-            <div class="form-check">
-
-                <input
-                    type="checkbox"
-                    class="form-check-input"
-                    name="MuscleGroups"
-                    value="Cardio"
-
-                    <%= workout.MuscleGroups.includes('Cardio')
-                    ? 'checked' : '' %>
-                >
-
-                <label class="form-check-label">
-                    Cardio
+                <label class="form-label">
+                    Workout Day
                 </label>
+
+                <input type="number" name="Day" class="form-control" value="<%= workout.Day %>" min="1" required>
 
             </div>
 
-            <div class="form-check">
+            <!-- TIMING -->
+            <div class="mb-3">
 
-                <input
-                    type="checkbox"
-                    class="form-check-input"
-                    name="MuscleGroups"
-                    value="Biceps"
-
-                    <%= workout.MuscleGroups.includes('Biceps')
-                    ? 'checked' : '' %>
-                >
-
-                <label class="form-check-label">
-                    Biceps
+                <label class="form-label">
+                    Workout Timing
                 </label>
+
+                <select name="Timing" class="form-control">
+
+                    <option value="Morning" <%=workout.Timing==='Morning' ? 'selected' : '' %>>
+                        Morning
+                    </option>
+
+                    <option value="Afternoon" <%=workout.Timing==='Afternoon' ? 'selected' : '' %>>
+                        Afternoon
+                    </option>
+
+                    <option value="Evening" <%=workout.Timing==='Evening' ? 'selected' : '' %>>
+                        Evening
+                    </option>
+
+                </select>
 
             </div>
 
-            <div class="form-check">
+            <!-- MUSCLE GROUPS -->
+            <div class="mb-3">
 
-                <input
-                    type="checkbox"
-                    class="form-check-input"
-                    name="MuscleGroups"
-                    value="Chest"
-
-                    <%= workout.MuscleGroups.includes('Chest')
-                    ? 'checked' : '' %>
-                >
-
-                <label class="form-check-label">
-                    Chest
+                <label class="form-label">
+                    Muscle Groups
                 </label>
+
+                <div class="form-check">
+
+                    <input type="checkbox" class="form-check-input" name="MuscleGroups" value="Cardio"
+                        <%=workout.MuscleGroups.includes('Cardio') ? 'checked' : '' %>
+                    >
+
+                    <label class="form-check-label">
+                        Cardio
+                    </label>
+
+                </div>
+
+                <div class="form-check">
+
+                    <input type="checkbox" class="form-check-input" name="MuscleGroups" value="Biceps"
+                        <%=workout.MuscleGroups.includes('Biceps') ? 'checked' : '' %>
+                    >
+
+                    <label class="form-check-label">
+                        Biceps
+                    </label>
+
+                </div>
+
+                <div class="form-check">
+
+                    <input type="checkbox" class="form-check-input" name="MuscleGroups" value="Chest"
+                        <%=workout.MuscleGroups.includes('Chest') ? 'checked' : '' %>
+                    >
+
+                    <label class="form-check-label">
+                        Chest
+                    </label>
+
+                </div>
+
+                <div class="form-check">
+
+                    <input type="checkbox" class="form-check-input" name="MuscleGroups" value="Back"
+                        <%=workout.MuscleGroups.includes('Back') ? 'checked' : '' %>
+                    >
+
+                    <label class="form-check-label">
+                        Back
+                    </label>
+
+                </div>
+
+                <div class="form-check">
+
+                    <input type="checkbox" class="form-check-input" name="MuscleGroups" value="Legs"
+                        <%=workout.MuscleGroups.includes('Legs') ? 'checked' : '' %>
+                    >
+
+                    <label class="form-check-label">
+                        Legs
+                    </label>
+
+                </div>
+
+                <div class="form-check">
+
+                    <input type="checkbox" class="form-check-input" name="MuscleGroups" value="Abs"
+                        <%=workout.MuscleGroups.includes('Abs') ? 'checked' : '' %>
+                    >
+
+                    <label class="form-check-label">
+                        Abs
+                    </label>
+
+                </div>
 
             </div>
 
-            <div class="form-check">
+            <!-- NOTES -->
+            <div class="mb-3">
 
-                <input
-                    type="checkbox"
-                    class="form-check-input"
-                    name="MuscleGroups"
-                    value="Back"
-
-                    <%= workout.MuscleGroups.includes('Back')
-                    ? 'checked' : '' %>
-                >
-
-                <label class="form-check-label">
-                    Back
+                <label class="form-label">
+                    Notes
                 </label>
+
+                <textarea name="Notes" class="form-control"><%= workout.Notes %></textarea>
 
             </div>
 
-            <div class="form-check">
+            <div class="text-center">
 
-                <input
-                    type="checkbox"
-                    class="form-check-input"
-                    name="MuscleGroups"
-                    value="Legs"
-
-                    <%= workout.MuscleGroups.includes('Legs')
-                    ? 'checked' : '' %>
-                >
-
-                <label class="form-check-label">
-                    Legs
-                </label>
+                <button type="submit" class="btn btn-primary">
+                    Update Workout
+                </button>
 
             </div>
 
-            <div class="form-check">
+        </form>
 
-                <input
-                    type="checkbox"
-                    class="form-check-input"
-                    name="MuscleGroups"
-                    value="Abs"
-
-                    <%= workout.MuscleGroups.includes('Abs')
-                    ? 'checked' : '' %>
-                >
-
-                <label class="form-check-label">
-                    Abs
-                </label>
-
-            </div>
-
-        </div>
-
-        <!-- NOTES -->
-        <div class="mb-3">
-
-            <label class="form-label">
-                Notes
-            </label>
-
-            <textarea
-                name="Notes"
-                class="form-control"><%= workout.Notes %></textarea>
-
-        </div>
-
-        <div class="text-center">
-
-            <button type="submit" class="btn btn-primary">
-                Update Workout
-            </button>
-
-        </div>
-
-    </form>
-
-</div>
+    </div>
 
 </body>
+
 </html>
