@@ -53,9 +53,9 @@ app.post('/confirmworkout', (req, res) => {
     });
 });
 
-app.get('/workout', (req, res) => {
+app.get('/workouts', (req, res) => {
 
-    res.render('workout', {
+    res.render('workouts', {
         workouts
     });
 
@@ -72,7 +72,7 @@ app.get('/editworkout/:id', (req, res) => {
 
 });
 
-app.post('/updateWorkout/:id', (req, res) => {
+app.post('/updateworkout/:id', (req, res) => {
 
     const id = req.params.id;
 
@@ -85,7 +85,7 @@ app.post('/updateWorkout/:id', (req, res) => {
 
     };
 
-    res.render('confirmedWorkout', {
+    res.render('updateworkout', {
         message: "Workout updated!",
         workout: workouts[id]
     });
