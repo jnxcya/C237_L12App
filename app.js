@@ -96,20 +96,24 @@ app.get('/workouts', (req, res) => {
 // EDIT WORKOUT PAGE
 // =====================================================
 
-app.get('/editworkout/:id', (req, res) => {
+app.get('/editworkout', (req, res) => {
 
-    const id = req.params.id;
+    // Get latest workout
+    const latestWorkout = workouts[workouts.length - 1];
+
+    // Get latest workout index
+    const id = workouts.length - 1;
 
     // Check if workout exists
-    if (!workouts[id]) {
+    if (!latestWorkout) {
 
-        return res.send('Workout not found');
+        return res.send('No workouts available');
 
     }
 
     res.render('editworkout', {
 
-        workout: workouts[id],
+        workout: latestWorkout,
         id
 
     });
