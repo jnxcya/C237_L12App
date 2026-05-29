@@ -23,30 +23,20 @@
         <!-- DAY -->
         <div class="mb-3">
 
-            <label class="form-label">
-                Workout Day
-            </label>
+    <label class="form-label">
+        Workout Day
+    </label>
 
-            <select name="Day" class="form-control">
+    <input
+        type="number"
+        name="Day"
+        class="form-control"
+        value="<%= workout.Day %>"
+        min="1"
+        required
+    >
 
-                <option value="Day 1"
-                    <%= workout.Day === 'Day 1' ? 'selected' : '' %>>
-                    Day 1
-                </option>
-
-                <option value="Day 2"
-                    <%= workout.Day === 'Day 2' ? 'selected' : '' %>>
-                    Day 2
-                </option>
-
-                <option value="Day 3"
-                    <%= workout.Day === 'Day 3' ? 'selected' : '' %>>
-                    Day 3
-                </option>
-
-            </select>
-
-        </div>
+</div>
 
         <!-- TIMING -->
         <div class="mb-3">
