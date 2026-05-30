@@ -125,11 +125,14 @@ app.get('/editworkout', (req, res) => {
 // UPDATE WORKOUT
 // =====================================================
 
-app.post('/updateworkout/:id', (req, res) => {
+app.post('/updateworkout', (req, res) => {
 
-    const id = req.params.id;
+    const id = workouts.length - 1;
 
-    // Update workout
+    if (id < 0) {
+        return res.send('No workouts available');
+    }
+
     workouts[id] = {
 
         Day: Number(req.body.Day),
@@ -139,12 +142,9 @@ app.post('/updateworkout/:id', (req, res) => {
 
     };
 
-    // Render updated confirmation page
     res.render('updateworkout', {
-
         message: "Workout Updated!",
         workout: workouts[id]
-
     });
 
 });
